@@ -1,14 +1,34 @@
-Insurance Charges Prediction using Linear Regression
-Project Overview
-This project aims to predict insurance charges using a Linear Regression model. The analysis involves data cleaning, exploratory data analysis, feature engineering, model training, and evaluation.
+Insurance Cost Prediction using Linear Regression
+This project demonstrates a simple linear regression model to predict medical insurance costs based on various features. The notebook covers data loading, exploratory data analysis, outlier removal, feature engineering, model training, and evaluation.
 
-Data Source
-The dataset used is insurance.csv, which contains various personal attributes and corresponding medical insurance charges.
+Project Structure
+Data Loading: The insurance.csv dataset is loaded into a pandas DataFrame.
+Exploratory Data Analysis (EDA): Basic data information (df.info(), df.describe()) and BMI distribution visualizations are performed.
+Data Preprocessing:
+Outliers in the 'bmi' column are identified and removed using the IQR method.
+Categorical features ('sex', 'smoker', 'region') are one-hot encoded.
+Feature Selection: Relevant features for the model ('age', 'bmi', 'smoker_yes') are selected.
+Model Training:
+The data is split into training and testing sets.
+A LinearRegression model from sklearn.linear_model is trained on the training data.
+Model Evaluation:
+The model's performance is evaluated using Mean Squared Error (MSE) on both training and testing datasets.
+Model Saving: The trained linear regression model is saved using pickle for future use.
+Dataset
+The insurance.csv dataset contains the following columns:
 
-Methodology
-Data Loading and Initial Exploration: The insurance.csv file is loaded into a pandas DataFrame, and basic information (.info(), .describe()) is displayed.
-Outlier Handling: Outliers in the 'bmi' column are identified using the IQR method and clipped to ensure data quality.
-Feature Engineering: Categorical features (sex, smoker, region) are converted into numerical format using one-hot encoding with pd.get_dummies().
-Model Training: A Linear Regression model is trained using 'age', 'bmi', and 'smoker_yes' as features to predict 'charges'.
-Model Evaluation: The model's performance is evaluated using Mean Squared Error (MSE) on both training and test datasets.
-Model Saving: The trained Linear Regression model is saved as model.pkl using Python's pickle module for future use.
+age: age of primary beneficiary
+sex: insurance contractor gender, female, male
+bmi: Body mass index, providing an understanding of body, weights that are relatively high or low relative to height, objective index of body weight (kg / m^2) using the ratio of height to weight, ideally 18.5 to 24.9.
+children: number of children covered by health insurance / number of dependents
+smoker: smoking
+region: residential area of beneficiary in the US, northeast, southeast, southwest, northwest.
+charges: individual medical costs billed by health insurance.
+Setup and Usage
+To run this notebook, you will need the following Python libraries:
+
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
